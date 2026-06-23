@@ -202,7 +202,7 @@ var benchCases = []decimal.Decimal{
 var benchInts = []int64{1, 1234, 33333, 9999999, 1000000}
 
 func BenchmarkBahtToThaiText(b *testing.B) {
-	for b.Loop() {
+	for i := 0; i < b.N; i++ {
 		for _, v := range benchCases {
 			BahtToThaiText(v)
 		}
@@ -210,7 +210,7 @@ func BenchmarkBahtToThaiText(b *testing.B) {
 }
 
 func BenchmarkNumberToThai(b *testing.B) {
-	for b.Loop() {
+	for i := 0; i < b.N; i++ {
 		for _, v := range benchInts {
 			numberToThai(v)
 		}
